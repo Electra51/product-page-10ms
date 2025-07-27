@@ -1,1 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+Bengali:wght@100..900&display=swap");
 @import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: "Inter", sans-serif;
+  }
+
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  }
+
+  .font-bengali {
+    font-family: "Noto Sans Bengali", sans-serif;
+  }
+}
+
+.hero-banner {
+  background-image: url("https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg");
+  background-size: cover;
+  background-position: center;
+}

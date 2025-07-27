@@ -143,10 +143,25 @@ const Navbar = () => {
         <button
           className="border px-2 py-1 text-sm rounded"
           onClick={handleSwitchLang}>
-          <span className="text-base">অ</span>
-          <span className="text-[10px] -mt-2">A</span>
-          <span className="text-[18px] pl-1">EN</span>
+          <span
+            className={`text-[18px] pl-1 ${
+              pathname.startsWith("/en")
+                ? "font-bold text-green-600"
+                : "text-gray-500"
+            }`}>
+            EN
+          </span>
+          <span className="px-1">|</span>
+          <span
+            className={`text-[18px] ${
+              pathname.startsWith("/bn")
+                ? "font-bold text-green-600"
+                : "text-gray-500"
+            }`}>
+            বাং
+          </span>
         </button>
+
         <span className="text-green-600 font-semibold hidden lg:flex md:block justify-center items-center gap-1">
           <IoCall className="text-green-600" /> 16910
         </span>
