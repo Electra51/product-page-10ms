@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import MediaHeroSection from "@/components/MediaHeroSection";
 import Navbar from "@/components/Navbar/Navbar";
 import { fetchProduct } from "@/lib/fetchProduct";
 import Image from "next/image";
@@ -6,6 +8,7 @@ import { notFound } from "next/navigation";
 interface Props {
   params: Promise<{ lang: string }>;
 }
+
 function stripHtmlTags(htmlString: string): string {
   if (!htmlString) return "";
   return htmlString.replace(/<[^>]*>?/gm, "");
@@ -26,6 +29,10 @@ export default async function IELTSPage(props: Props) {
 
   const data = await fetchProduct(lang);
   console.log("data...", data.data);
+  const media = data.data.media.filter(
+    (item: any) =>
+      item.resource_type === "image" || item.resource_type === "video"
+  );
 
   return (
     <>
@@ -34,8 +41,12 @@ export default async function IELTSPage(props: Props) {
         className={`mx-auto py-6 ${
           lang === "bn" ? "font-bengali" : "font-inter"
         }`}>
-        <div className="min-h-[300px]  md:min-h-[300px] hero-banner">
-          <div className="max-w-[1200px] mx-auto min-h-[300px] flex flex-col justify-center">
+        <div className="min-h-[300px] border border-red-500 md:min-h-[300px] hero-banner">
+          <div className="max-w-[1200px] mx-auto min-h-[300px] flex flex-col justify-center border border-white relative">
+            {/* <section className="absolute w-full md:max-w-[330px] lg:max-w-[400px] border-2 border-red-500 bg-white right-0 md:top-[50px] md:absolute">
+              <div className="md:sticky md:top-[116px]">hello</div>
+            </section> */}
+            <MediaHeroSection media={media} />
             <h1 className="text-white mb-2 text-[21px] font-semibold  md:text-4xl">
               {data.data.title}
             </h1>
@@ -46,6 +57,8 @@ export default async function IELTSPage(props: Props) {
             )}
           </div>
         </div>
+        {/* trailor */}
+
         {/* instructor section*/}
         <div className="mb-7 xs:bg-[#EEF2F4] xs:pt-2 max-w-[1200px] mx-auto flex flex-col gap-4 md:flex-row md:gap-12 ">
           <div className="pt-4 pb-2 bg-white">
@@ -116,7 +129,6 @@ export default async function IELTSPage(props: Props) {
           </div>
         </div>
         {/* pointer section */}
-
         <div className="mb-7 xs:bg-[#EEF2F4] xs:pt-2 max-w-[1200px] mx-auto flex flex-col gap-4 md:flex-row md:gap-12">
           <div className="pt-4 pb-2 bg-white">
             <h2 className="mb-4 text-xl font-semibold md:text-2xl">
@@ -140,6 +152,66 @@ export default async function IELTSPage(props: Props) {
                   </div>
                 )
               )}
+            </div>
+          </div>
+        </div>
+        {/* course exclusive feature */}
+        <div className="mb-7 xs:bg-[#EEF2F4] xs:pt-2 max-w-[1200px] mx-auto flex flex-col gap-4 md:flex-row md:gap-12">
+          <div className="pt-4 pb-2 bg-white">
+            <h2 className="mb-4 text-xl font-semibold md:text-2xl">
+              {data.data.sections[8].name}
+            </h2>
+
+            <div className="w-[768px] border border-[#dbe1eb] rounded-md p-4 grid grid-cols-1 md:grid-cols-1 gap-y-3 gap-x-8 divide-black">
+              {data.data.sections[8]?.values?.map((feature: any) => (
+                <div key={feature.id} className="flex flex-row gap-2">
+                  <div>
+                    <h3 className="text-lg font-semibold">{feature.title}</h3>
+                    <ul className="list-none space-y-2">
+                      {feature.checklist.map((item: any, index: number) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-blue-600 font-bold text-xl">
+                            ✓
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {feature.file_type === "image" && feature.file_url && (
+                    <Image
+                      src={feature.file_url}
+                      alt={feature.title}
+                      width={300}
+                      height={300}
+                      className="mt-4 rounded ml-auto"
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-[1200px] mx-auto mb-7 xs:bg-[#EEF2F4] xs:pt-2">
+          <div className="bg-white pt-4 pb-2">
+            <h2 className="mb-4 text-xl font-semibold md:text-2xl">
+              {data.data?.sections[7]?.name}
+            </h2>
+
+            <div className="space-y-4 rounded-lg py-2 md:border md:px-5 w-[768px]">
+              {data.data?.sections[7]?.values.map((e: any, i: any) => (
+                <details
+                  className="mb-0 border-[#dbe1eb] border-b border-dashed last:border-none"
+                  key={i}>
+                  <summary className="cursor-pointer px-4 py-3 text-base font-medium">
+                    <b>{stripHtmlTags(e?.title)}</b>
+                  </summary>
+                  <div
+                    className="px-4 py-3 text-sm text-gray-700"
+                    dangerouslySetInnerHTML={{ __html: e?.description }}></div>
+                </details>
+              ))}
             </div>
           </div>
         </div>
