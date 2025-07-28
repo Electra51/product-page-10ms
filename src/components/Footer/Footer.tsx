@@ -11,7 +11,7 @@ import googlePlay from "../../assets/google-play-icon.jpeg";
 import iosPlay from "../../assets/ios-store-icon.jpeg";
 export default function Footer() {
   return (
-    <footer className="bg-white border-t mt-10 py-8 text-sm text-[#111827]">
+    <footer className="bg-white mt-10 py-8 text-sm text-[#111827]">
       <div className="flex flex-col pt-12 md:flex-row  md:border-[#E4E4E4] max-w-[1200px] mx-auto">
         <div className="flex flex-col items-center w-full mb-7 md:mb-0 md:items-start mx-lg:mb-7 mx-lg:mr-6">
           <Image

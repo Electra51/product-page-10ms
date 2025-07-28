@@ -23,7 +23,7 @@ function MediaHeroSection({
   console.log("checkListData", checkListData);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <section className="hidden md:block absolute w-full md:max-w-[330px] lg:max-w-[400px] bg-white right-0 top-[50px] shadow-lg">
+    <section className="absolute w-full md:max-w-[330px] lg:max-w-[400px] bg-transparent md:bg-white right-0 top-[4px] md:top-[50px] md:border border-[#dbe1eb]">
       <div className="md:sticky md:top-[116px] p-1">
         {media.length > 0 && (
           <>
@@ -94,34 +94,36 @@ function MediaHeroSection({
           </>
         )}
 
-        <div className="flex items-center justify-between md:flex-col md:items-start my-4 p-1">
-          <div className="inline-block text-2xl font-semibold">৳1000</div>
-        </div>
+        <div className="px-4 hidden md:block">
+          <div className="flex items-center justify-between md:flex-col md:items-start my-4 p-1">
+            <div className="inline-block text-2xl font-semibold">৳1000</div>
+          </div>
 
-        <button className="bg-green-500 whitespace-nowrap button primary text-center md:w-full centered-buttons">
-          Enroll
-        </button>
+          <button className="bg-green-500 whitespace-nowrap button primary text-center md:w-full centered-buttons">
+            Enroll
+          </button>
 
-        <div className="max-w-[1200px] mx-auto mb-7 xs:bg-[#EEF2F4] xs:pt-2">
-          <div className="bg-white pt-4 pb-2 px-4">
-            <h2 className="mb-4 text-xl font-semibold md:text-2xl">
-              এই কোর্সে যা থাকছে
-            </h2>
+          <div className="max-w-[1200px] mx-auto mb-7 xs:bg-[#EEF2F4] xs:pt-2">
+            <div className="bg-white pt-4 pb-2">
+              <h2 className="mb-4 text-xl font-semibold md:text-2xl">
+                এই কোর্সে যা থাকছে
+              </h2>
 
-            <ul className="space-y-3">
-              {checkListData.map((item: any) => (
-                <li key={item.id} className="flex items-start gap-3">
-                  <Image
-                    src={item.icon}
-                    alt="icon"
-                    width={20}
-                    height={20}
-                    className="mt-1"
-                  />
-                  <p className="text-[16px] text-[#111827]">{item.text}</p>
-                </li>
-              ))}
-            </ul>
+              <ul className="space-y-3">
+                {checkListData.map((item: any) => (
+                  <li key={item.id} className="flex items-start gap-3">
+                    <Image
+                      src={item.icon}
+                      alt="icon"
+                      width={20}
+                      height={20}
+                      className="mt-1"
+                    />
+                    <p className="text-[16px] text-[#111827]">{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
