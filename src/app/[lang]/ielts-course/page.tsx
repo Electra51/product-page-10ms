@@ -29,9 +29,10 @@ function stripHtmlTagsforInstructor(htmlString: string): string {
 export async function generateMetadata({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
-  const data = await fetchProduct(params.lang);
+  const { lang } = await params; // Await params here
+  const data = await fetchProduct(lang);
   const seo = data.data.seo;
 
   const getMetaValue = (property: string) =>
@@ -262,7 +263,7 @@ export default async function IELTSPage(props: Props) {
                       alt={feature.title}
                       width={280}
                       height={240}
-                      className="mt-4 rounded mr-auto md:ml-auto"
+                      className="mt-4 rounded mr-auto md:ml-auto lg:ml-auto"
                     />
                   )}
                 </div>
