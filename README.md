@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+👉 **Live page**: [[10minuteschool.com/product/ielts-course](https://10minuteschool.com/product/ielts-course/)](http://localhost:3000/en/ielts-course)
+
 ## Getting Started
 
 First, run the development server:
