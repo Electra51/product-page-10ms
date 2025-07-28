@@ -182,7 +182,7 @@ export default function Footer() {
               </span>
             </p>
           </div>
-          <div className="mx-auto mb-3 mt-5 flex w-full max-w-[256px] gap-6 md:mx-0">
+          <div className="mx-auto mb-3 mt-5 flex w-full justify-center md:justify-start max-w-[256px] gap-6 md:mx-0">
             <div className="flex gap-3 mt-3 text-white">
               <a href="#" className="bg-[#111827] p-2 rounded">
                 <FaFacebookF />
