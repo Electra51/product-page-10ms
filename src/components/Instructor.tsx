@@ -1,6 +1,7 @@
 import stripHtmlTagsforInstructor from "@/utils/InstructorDetailsFunction";
 import Image from "next/image";
 import React from "react";
+import { FaAngleRight } from "react-icons/fa";
 
 type InstructorValue = {
   name: string;
@@ -37,9 +38,11 @@ const Instructor = ({ details }: InstructorProps) => {
             </div>
 
             <div>
-              <p className="text-base font-semibold flex items-center gap-1 hover:text-green-600 cursor-pointer">
+              <p className="text-base font-semibold flex items-center gap-1 group hover:text-green-600 cursor-pointer">
                 {details.values[0].name}
-                <span className="text-green-600 text-lg font-bold">›</span>
+                <span className="text-gray-400 text-sm font-bold group-hover:text-green-500">
+                  <FaAngleRight className=" font-light" />
+                </span>
               </p>
 
               <p className="text-sm mt-1 max-w-[280px]">

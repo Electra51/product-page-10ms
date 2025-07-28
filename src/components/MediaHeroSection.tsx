@@ -69,7 +69,6 @@ function MediaHeroSection({
             </Swiper>
 
             <Swiper
-              // onSwiper={setThumbsSwiper}
               onSwiper={handleSetThumbsSwiper}
               loop={true}
               spaceBetween={10}
@@ -80,7 +79,6 @@ function MediaHeroSection({
               className="mySwiper">
               {media.map((item, idx) => (
                 <SwiperSlide key={idx} className="!w-[60px] !h-[40px] rounded">
-                  {/* <div className="w-[60px] h-[40px] rounded overflow-hidden"> */}
                   <Image
                     src={item.thumbnail_url || item.resource_value}
                     alt="Thumb Slide"
@@ -89,7 +87,6 @@ function MediaHeroSection({
                     unoptimized
                     className="object-fit w-full h-full rounded"
                   />
-                  {/* </div> */}
                 </SwiperSlide>
               ))}
             </Swiper>

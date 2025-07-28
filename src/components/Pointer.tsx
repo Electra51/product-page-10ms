@@ -24,8 +24,8 @@ const Pointer = ({ pointerData }: PointerProps) => {
           </h2>
 
           <div className="w-[100%] md:w-[768px] md:border border-[#dbe1eb] rounded-md p-4 grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8">
-            {pointerData.values.map((item) => (
-              <div key={item.id} className="flex items-start gap-2">
+            {pointerData.values.map((item, i) => (
+              <div key={i} className="flex items-start gap-2">
                 <svg
                   className="mt-1 text-blue-500 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"

@@ -28,10 +28,8 @@ const Exclusive = ({ exclusiveData }: ExclusiveProps) => {
           </h2>
 
           <div className="w-[100%] md:w-[768px] border border-[#dbe1eb] rounded-md px-4 grid grid-cols-1 md:grid-cols-1 divide-y divide-[#dbe1eb]">
-            {exclusiveData?.values?.map((feature) => (
-              <div
-                key={feature.id}
-                className="flex flex-col md:flex-row gap-2 py-4">
+            {exclusiveData?.values?.map((feature, i) => (
+              <div key={i} className="flex flex-col md:flex-row gap-2 py-4">
                 <div>
                   <h3 className="font-medium leading-[30px] text-[#111827] text-[17px]">
                     {feature.title}
