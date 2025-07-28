@@ -6,9 +6,9 @@ import {
   FaYoutube,
   FaTiktok,
 } from "react-icons/fa";
-import logo from "../../assets/10mslogo.svg";
-import googlePlay from "../../assets/google-play-icon.jpeg";
-import iosPlay from "../../assets/ios-store-icon.jpeg";
+import logo from "../assets/10mslogo.svg";
+import googlePlay from "../assets/google-play-icon.jpeg";
+import iosPlay from "../assets/ios-store-icon.jpeg";
 export default function Footer() {
   return (
     <footer className="bg-white mt-10 py-8 text-sm text-[#111827]">

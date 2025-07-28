@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import logo from "../../assets/10mslogo.svg";
+import logo from "../assets/10mslogo.svg";
 import { IoCall } from "react-icons/io5";
 
 const Navbar = () => {
