@@ -20,3 +20,77 @@
   background-size: cover;
   background-position: center;
 }
+/* .swiper-wrapper {
+  height: 230px !important;
+} */
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: var(--swiper-navigation-top-offset, 50%);
+  width: 30px !important;
+  height: 30px !important;
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black !important;
+  background: #fff !important;
+  border-radius: 50% !important;
+}
+.swiper-slide-thumb-active {
+  border: 2px solid #1cab55 !important;
+  /* padding: 10px !important; */
+}
+.swiper {
+  margin: 6px !important;
+}
+.swiper-button-prev {
+  left: -20px;
+}
+
+.swiper-button-next {
+  right: -20px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 16px !important;
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+}
+.button.primary:not(.outlined) {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(28 171 85 / var(--tw-bg-opacity, 1)) !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.centered-buttons {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button {
+  border-bottom-width: 4px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  padding: 0.5rem 2rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  cursor: pointer;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+}

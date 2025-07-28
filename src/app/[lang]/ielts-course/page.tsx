@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Footer from "@/components/Footer/Footer";
 import MediaHeroSection from "@/components/MediaHeroSection";
 import Navbar from "@/components/Navbar/Navbar";
 import { fetchProduct } from "@/lib/fetchProduct";
@@ -33,7 +34,7 @@ export default async function IELTSPage(props: Props) {
     (item: any) =>
       item.resource_type === "image" || item.resource_type === "video"
   );
-
+  const checklist = data.data.checklist;
   return (
     <>
       <Navbar />
@@ -43,10 +44,7 @@ export default async function IELTSPage(props: Props) {
         }`}>
         <div className="min-h-[300px] border border-red-500 md:min-h-[300px] hero-banner">
           <div className="max-w-[1200px] mx-auto min-h-[300px] flex flex-col justify-center border border-white relative">
-            {/* <section className="absolute w-full md:max-w-[330px] lg:max-w-[400px] border-2 border-red-500 bg-white right-0 md:top-[50px] md:absolute">
-              <div className="md:sticky md:top-[116px]">hello</div>
-            </section> */}
-            <MediaHeroSection media={media} />
+            <MediaHeroSection media={media} checkListData={checklist} />
             <h1 className="text-white mb-2 text-[21px] font-semibold  md:text-4xl">
               {data.data.title}
             </h1>
@@ -57,7 +55,6 @@ export default async function IELTSPage(props: Props) {
             )}
           </div>
         </div>
-        {/* trailor */}
 
         {/* instructor section*/}
         <div className="mb-7 xs:bg-[#EEF2F4] xs:pt-2 max-w-[1200px] mx-auto flex flex-col gap-4 md:flex-row md:gap-12 ">
@@ -216,6 +213,7 @@ export default async function IELTSPage(props: Props) {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }
