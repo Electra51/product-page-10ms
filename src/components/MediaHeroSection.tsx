@@ -21,7 +21,8 @@ function MediaHeroSection({
   checkListData: any;
 }) {
   console.log("checkListData", checkListData);
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<null>(null);
+  const handleSetThumbsSwiper = (swiper: any) => setThumbsSwiper(swiper);
   return (
     <section className="absolute w-full md:max-w-[330px] lg:max-w-[400px] bg-transparent md:bg-white right-0 top-[4px] md:top-[50px] md:border border-[#dbe1eb]">
       <div className="md:sticky md:top-[116px] p-1">
@@ -68,7 +69,8 @@ function MediaHeroSection({
             </Swiper>
 
             <Swiper
-              onSwiper={setThumbsSwiper}
+              // onSwiper={setThumbsSwiper}
+              onSwiper={handleSetThumbsSwiper}
               loop={true}
               spaceBetween={10}
               slidesPerView={4}
